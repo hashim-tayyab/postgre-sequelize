@@ -3,8 +3,12 @@ const employeeController = require('../controller/employeeController');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    res.send("Home Page");
+    res.render('home');
 });
+
+router.get('/addEmployee', (req, res) => {
+    res.render('addEmp');
+})
 
 router.get('/getemployees',employeeController.getEmployees);
 
