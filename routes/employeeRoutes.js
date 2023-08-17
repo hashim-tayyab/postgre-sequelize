@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     res.render('home');
 });
 
-router.get('/addEmployee', (req, res) => {
+router.get('/addemployee', (req, res) => {
     res.render('addEmp');
 })
 

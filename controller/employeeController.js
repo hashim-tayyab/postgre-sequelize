@@ -5,6 +5,7 @@ class EmployeeController{
     async getEmployees(req,res){
        try {
         const result = await getEmployees();
+        // console.log(result[0].email);
         res.json(result);
        } catch (error) {
         console.log(error);
