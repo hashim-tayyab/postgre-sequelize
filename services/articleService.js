@@ -18,7 +18,8 @@ class ArticleService {
             if (!newUser) {
               return { error: "User not found" };
             }
-            await newUser.setArticle(newArticle);
+            //We will use the "addAssociation" function for many to one relationship
+            await newUser.addArticle(newArticle);
             return newArticle;
           } catch (error) {
             console.error(error);

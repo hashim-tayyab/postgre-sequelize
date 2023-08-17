@@ -29,7 +29,7 @@ const Article = require('./articleModel');
       as: 'user',
     });
 
-    await sequelize.sync({ force: true }); // This will drop existing tables and create new ones
+    await sequelize.sync({ force: false }); // This will drop existing tables and create new ones
 
     console.log('Database synchronized successfully.');
   } catch (error) {

@@ -19,9 +19,4 @@ const Profile = sequelize.define("profile", {
 
 });
 
-
-// Profile.sync().then(() => {
-//   console.log("Profile Model synced successfully");
-// });
-
 module.exports = Profile;

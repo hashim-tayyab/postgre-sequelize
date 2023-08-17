@@ -13,31 +13,15 @@ class ProfileService {
         }
     }
 
-    //Creating new employee
-    // async addProfile(req, userId){
-    //     try {
-    //         const newProfile = await Profile.create(req);
-    //         const newUser = await User.findByPk(userId);
-    //         if (!newUser) {
-    //             return { error: "User not found" };
-    //           }
-    //           await newUser.setProfile(newProfile);
-    //         //   await employee.setProfile(newUser);
-    //         return newProfile;
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
 
     async addProfile(req, userId) {
         try {
           const newProfile = await Profile.create(req);
           const newUser = await User.findByPk(userId);
-      
           if (!newUser) {
             return { error: "User not found" };
           }
+          //We will use the setAssosiation function for the one to one relation
           await newUser.setProfile(newProfile);
           return newProfile;
         } catch (error) {
@@ -45,26 +29,6 @@ class ProfileService {
           return { error: "An error occurred" };
         }
       };
-
-    //Updating an employee
-    // async updateEmployee(req, email){
-    //     try {
-    //         const updatedUser = await User.update(req, {where: {email:email}});
-    //         return updatedUser;
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-    // //Deleting an employee data
-    // async removeEmployee(email){
-    //     try {
-    //         const deletedUser = await User.destroy( { where: { email : email } } );
-    //         return deletedUser;
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
 }
 
 module.exports = new ProfileService();

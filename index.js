@@ -9,7 +9,6 @@ const articleRouter = require("./routes/articleRoute");
 app.use('/', userRouter);
 app.use(profileRouter);
 app.use(articleRouter);
-// app.use
 app.set('view engine', 'ejs');
 
 app.listen(3000, () => console.log("Listening to PORT: 3000"));

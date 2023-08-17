@@ -5,7 +5,6 @@ class ProfileController{
     async getProfile(req,res){
        try {
         const result = await getProfile();
-        // console.log(result[0].email);
         res.json(result);
        } catch (error) {
         console.log(error);
