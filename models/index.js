@@ -2,6 +2,8 @@ const sequelize = require('../config/db'); // Adjust the path to your database c
 const User = require('./userModel'); // Adjust the path to your User model
 const Profile = require('./profileModel'); // Adjust the path to your Profile model
 const Article = require('./articleModel');
+const Course = require('./courseModel');
+const UserCourse = require('./userCourseModel');
 
 (async () => {
   try {
@@ -28,6 +30,24 @@ const Article = require('./articleModel');
       foreignKey: 'userId',
       as: 'user',
     });
+
+
+    // (MANY-TO-MANY) Relation between user and courses
+    User.belongsToMany(Course, {
+      through:'user_courses',
+      foreignKey: '',
+      as: 'course'
+    });
+    Course.belongsToMany(User, {
+      through:'user_courses',
+      foreignKey: '',
+      as: 'user'
+    })
+
+
+    UserCourse.belongsTo(User);
+    UserCourse.belongsTo(Course);
+
 
     await sequelize.sync({ force: false }); // This will drop existing tables and create new ones
 
