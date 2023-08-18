@@ -1,19 +1,19 @@
 const User = require("../models/userModel");
 
-class EmployeeService {
+class UserService {
 
-    //Getting list of all employees
-    async getEmployees(req, res, next) {
+    //Getting list of all Users
+    async getUsers(req, res, next) {
         try {
-            const employees = await User.findAll();
-            return employees;
+            const users = await User.findAll();
+            return users;
         } catch (error) {
             console.log(error);
         }
     }
 
-    //Creating new employee
-    async addEmployee(req){
+    //Creating new User
+    async addUser(req){
         try {
             const newUser = await User.create(req);
             return newUser;
@@ -22,8 +22,8 @@ class EmployeeService {
         }
     }
 
-    //Updating an employee
-    async updateEmployee(req, email){
+    //Updating an User
+    async updateUser(req, email){
         try {
             const updatedUser = await User.update(req, {where: {email:email}});
             return updatedUser;
@@ -32,8 +32,8 @@ class EmployeeService {
         }
     }
 
-    //Deleting an employee data
-    async removeEmployee(email){
+    //Deleting an User data
+    async removeUser(email){
         try {
             const deletedUser = await User.destroy( { where: { email : email } } );
             return deletedUser;
@@ -43,4 +43,4 @@ class EmployeeService {
     }
 }
 
-module.exports = new EmployeeService();
+module.exports = new UserService();

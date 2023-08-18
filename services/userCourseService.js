@@ -1,16 +1,14 @@
 const User = require('../models/userModel');
 const Course = require('../models/courseModel');
-const UserCourse = require('../models/userCourseModel');
 
 
 class UserCourseService {
   async getAllUserByCourse() {
     try {
       const allUsersWithCourses = await User.findAll({
-        include: { model: Course, as: "Courses" },
-         // Include associated courses
+        include: { model: Course, as: "course" },
       });
-      const usersWithCourses = allUsersWithCourses.filter(user => user.Courses.length > 0);
+      const usersWithCourses = allUsersWithCourses.filter(user => user.course.length > 0);
 
       return usersWithCourses;
     } catch (err) {

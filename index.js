@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 require('./models')
-const userRouter = require("./routes/employeeRoutes");
+const userRouter = require("./routes/userRoutes");
 const profileRouter = require("./routes/profileRoute");
 const articleRouter = require("./routes/articleRoute");
 const courseRouter = require('./routes/courseRoute');
