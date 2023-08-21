@@ -1,4 +1,4 @@
-const {getUsers, addUser, updateUser, removeUser} = require('../services/userService');
+const {getUsers, addUser, updateUser, removeUser, joinProfileUser} = require('../services/userService');
 
 
 class UserController{
@@ -33,6 +33,15 @@ class UserController{
         try {
             const result = await removeUser(req.params.email);
             res.json(result);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async joinProfileUser(req, res) {
+        try {
+            const result = await joinProfileUser();
+            res.json(result)
         } catch (error) {
             console.log(error);
         }

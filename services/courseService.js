@@ -1,5 +1,3 @@
-// const Article = require('../models/articleModel');
-// const User = require('../models/userModel');
 const Course = require('../models/courseModel');
 
 class CourseService {

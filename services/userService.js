@@ -1,3 +1,4 @@
+const Profile = require("../models/profileModel");
 const User = require("../models/userModel");
 
 class UserService {
@@ -37,6 +38,18 @@ class UserService {
         try {
             const deletedUser = await User.destroy( { where: { email : email } } );
             return deletedUser;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+    async joinProfileUser(){
+        try {
+            const userProfile = await User.findAll( {
+                include: {model: Profile, as:"profile", required: true},
+            });
+            return userProfile;
         } catch (error) {
             console.log(error);
         }

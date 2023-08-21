@@ -18,4 +18,6 @@ router.put('/updateuser/:email', userController.updateUser);
 
 router.delete('/removeuser/:email', userController.removeUser);
 
+router.get('/userprofile', userController.joinProfileUser);
+
 module.exports = router;
